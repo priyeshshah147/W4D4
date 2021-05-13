@@ -21,24 +21,31 @@ class TowerOfHanoi
             when 3
                 user_picks = @arr3[-1] if !@arr3.empty?
             else
-                raise THROWTHETABLE_OUT
+                # raise THROWTHETABLE_OUT
             end
             puts 'Enter the position you want to place'
             user_place = gets.chomp.to_i
             case user_place
             when 1
-                if !user_picks.nil?
-                    next
+                if !user_picks.nil? && ( @arr1.empty? ||user_picks < @arr1[-1]  )
+                    @arr1.push(user_picks)
+                    @arr2.delete(user_picks)
+                    @arr3.delete(user_picks)
                 end
-                
-                @arr1.push(user_picks) if  !user_picks.nil? && ( @arr1.empty? ||user_picks < @arr1[-1]  )
-
             when 2
-                @arr2.push(user_picks) if  !user_picks.nil?  && (@arr2.empty? || user_picks < @arr2[-1] )
+                if  !user_picks.nil?  && (@arr2.empty? || user_picks < @arr2[-1] )
+                    @arr2.push(user_picks) 
+                    @arr1.delete(user_picks)
+                    @arr3.delete(user_picks)
+                end
             when 3
-                @arr3.push(user_picks) if !user_picks.nil?  && ( @arr3.empty? || user_picks < @arr3[-1] )
+                if !user_picks.nil?  && ( @arr3.empty? || user_picks < @arr3[-1] )
+                    @arr3.push(user_picks) 
+                    @arr1.delete(user_picks)
+                    @arr2.delete(user_picks)
+                end
             else
-                raise THROWTHETABLE_OUT
+                # raise THROWTHETABLE_OUT
             end  
         end
         puts "won"
@@ -56,19 +63,19 @@ class TowerOfHanoi
 
     end
 
-    def move
-        until 
-        puts 'Enter the position you want to pick'
-            user_pick1 = gets.chomp.to_i
-        puts 'Enter the position you want to place'
-            user_pick2 = gets.chomp.to_i
+    # def move
+    #     until 
+    #     puts 'Enter the position you want to pick'
+    #         user_pick1 = gets.chomp.to_i
+    #     puts 'Enter the position you want to place'
+    #         user_pick2 = gets.chomp.to_i
 
-            case user_pick2
-            when 1
-                if @arr1.empty?
-                end
-                if @arr1[-1] > user
+    #         case user_pick2
+    #         when 1
+    #             if @arr1.empty?
+    #             end
+    #             if @arr1[-1] > user
         
-    end
+    # end
 
 end
