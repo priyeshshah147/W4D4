@@ -1,7 +1,7 @@
 class TowerOfHanoi
     def initialize(n)
         @arr1 = []
-        n.times{|i| @arr.unshift(i+1)}
+        n.times{|i| @arr1.unshift(i+1)}
         @arr2 = []
         @arr3 = []
     end
