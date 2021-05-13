@@ -54,6 +54,7 @@ class TowerOfHanoi
     def won?
         @arr1.length + @arr2.length + @arr3.length == @arr2.length && @arr2 == @arr2.sort.reverse || 
         @arr1.length + @arr2.length + @arr3.length == @arr3.length && @arr3 == @arr3.sort.reverse
+
     end
 
     def render
