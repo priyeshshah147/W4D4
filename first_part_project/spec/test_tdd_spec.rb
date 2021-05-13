@@ -21,3 +21,10 @@ describe "#my_transpose" do
     end
 
 end
+
+describe "#stock_picker" do
+    it "takes an array of stock prices and outputs the most profitable pairs" do
+        expect(stock_picker([17,3,6,9,15,8,6,1,10])).to eq([1,4])
+    end
+end
+
